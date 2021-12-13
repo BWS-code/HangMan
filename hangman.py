@@ -1,15 +1,8 @@
 from random import choice
 
 
-print(' '.join('hangman'.upper()), end='\n\n')
+print('H A N G M A N')
 words = ('python', 'java', 'kotlin', 'javascript')
 pick = choice(words)
-trials = set('helloworld!')
-guessed = set()
-while trials:
-    print(''.join([letter if letter in guessed else '-' for letter in pick]))
-    entry = input('Input a letter:')
-    (guessed.add(entry), print()) if entry in pick else print('That letter doesn\'t appear in the word\n')
-    trials.pop()
-print('''Thanks for playing!
-We'll see how well you did in the next stage''')
+print(''.join([e if i < 3 else '-' for i, e in enumerate(pick)]))
+print('You lost!' if pick != input('Guess the word:') else 'You survived!')
